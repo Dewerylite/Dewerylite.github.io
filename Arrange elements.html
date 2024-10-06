@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>การจัดองค์ประกอบภาพ</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>การจัดองค์ประกอบภาพ</h1>
+            <button class="back-button" onclick="window.location.href='index.html'">ย้อนกลับ</button>
+        </header>
+
+        <section class="image-section">
+            <h2>รูปภาพที่เลือก</h2>
+            <div class="image-container">
+                <img src="image/3s.jpg" alt="Placeholder Image" id="selectedImage">
+            </div>
+        </section>
+
+        <section class="description-section">
+            <h2>ข้อมูลการจัดองค์ประกอบ</h2>
+            <p id="compositionTips">
+                กฎสามส่วน (Rule of Thirds) เป็นหลักการพื้นฐานที่ใช้ในการจัดองค์ประกอบภาพถ่าย เพื่อทำให้ภาพดูน่าสนใจและมีชีวิตชีวามากขึ้น โดยแบ่งภาพออกเป็นสามส่วนทั้งแนวนอนและแนวตั้ง ซึ่งจะได้เป็นกริดที่ประกอบด้วย 9 ช่อง (3x3) ดังนี้:
+
+1. **การจัดตำแหน่งของวัตถุ**: วัตถุสำคัญในภาพควรจะถูกวางไว้ที่จุดตัดของเส้นแนวนอนและแนวตั้ง หรือบนเส้นเหล่านี้ โดยไม่ควรวางวัตถุไว้ตรงกลางภาพเสมอ การจัดวางแบบนี้จะทำให้ภาพมีความสมดุลและน่าสนใจมากขึ้น
+
+2. **การสร้างสมดุลในภาพ**: นอกจากการวางวัตถุสำคัญแล้ว คุณสามารถใช้วัตถุอื่นในภาพเพื่อสร้างสมดุลให้กับภาพ เช่น การวางวัตถุอีกด้านหนึ่งที่มีขนาดหรือความสำคัญใกล้เคียงกันกับวัตถุหลัก
+
+3. **การนำสายตา**: กฎสามส่วนช่วยให้ผู้ชมมีทิศทางการมองที่ชัดเจน โดยทำให้เกิดการเคลื่อนไหวของสายตาในภาพไปยังจุดที่สำคัญ ทำให้ภาพไม่ดูน่าเบื่อและมีมิติ
+
+การใช้กฎสามส่วนไม่ได้หมายความว่าต้องปฏิบัติตามอย่างเคร่งครัดเสมอไป แต่ควรใช้เป็นแนวทางในการสร้างภาพที่ดีกว่า แนะนำให้ทดลองและปรับเปลี่ยนตามสภาพแวดล้อมหรือวัตถุที่ถ่ายเพื่อให้ได้ผลลัพธ์ที่ดีที่สุดค่ะ
+            </p>
+        </section>
+    </div>
+
+    <script>
+        function loadImage(event) {
+            const imageContainer = document.getElementById('selectedImage');
+            imageContainer.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
+</body>
+</html>
