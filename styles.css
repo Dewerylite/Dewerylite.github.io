@@ -1,3 +1,4 @@
+/* โค้ดสำหรับการออกแบบโครงสร้างหลัก */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -28,6 +29,7 @@ header h1 {
     justify-content: space-between;
 }
 
+/* โค้ดสำหรับกล่องแสดงเทคนิคต่างๆ */
 .technique {
     background-color: white;
     border-radius: 8px;
@@ -61,6 +63,7 @@ header h1 {
     color: #666;
 }
 
+/* ปุ่มต่างๆ */
 .button {
     background-color: #28a745;
     color: white;
@@ -76,6 +79,7 @@ header h1 {
     background-color: #218838;
 }
 
+/* ปรับแต่งตามหน้าจอขนาดเล็ก */
 @media (max-width: 768px) {
     .content {
         flex-direction: column;
@@ -87,6 +91,7 @@ header h1 {
     }
 }
 
+/* โค้ดสำหรับหน้ารายละเอียดการจัดองค์ประกอบ */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -111,27 +116,25 @@ h1 {
     margin: 0;
 }
 
+/* ปุ่มย้อนกลับ */
 .back-button {
-    background: #28a745; /* Change background to green */
+    background: #28a745;
     color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     margin-top: 10px;
     transition: background 0.3s ease;
-    border-radius: 20px; /* Make the button more rounded */
+    border-radius: 20px;
 }
 
 .back-button:hover {
-    background: #218838; /* Darker green on hover */
+    background: #218838;
 }
 
-
-.back-button:hover {
-    background: #e04e30;
-}
-
-.image-section, .description-section {
+/* การจัดรูปภาพและเนื้อหาในหน้า */
+.image-section,
+.description-section {
     background: white;
     padding: 20px;
     margin: 20px 0;
@@ -155,4 +158,3 @@ input[type="file"] {
     display: block;
     margin: 10px auto;
 }
-
