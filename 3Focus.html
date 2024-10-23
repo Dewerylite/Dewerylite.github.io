@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>การโฟกัสชัดลึก</title>
+    <style>
+        /* โค้ดสำหรับการออกแบบโครงสร้างหลัก */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* เปลี่ยนพื้นหลังให้ตรงกัน */
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px; /* ขนาดสูงสุดของ container */
+            margin: 0 auto; /* กึ่งกลางแนวนอน */
+            padding: 20px; /* ขอบใน */
+        }
+
+        /* โค้ดสำหรับกล่องแสดงเทคนิคต่างๆ */
+        .technique {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 300px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .technique:hover {
+            transform: scale(1.05); /* ขยายขณะ hover */
+        }
+
+        .technique img {
+            max-width: 100%;
+            border-radius: 8px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .technique h2 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .technique p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* ปุ่มต่างๆ */
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #218838; /* สีขณะ hover */
+        }
+
+        /* ปรับแต่งตามหน้าจอขนาดเล็ก */
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .technique {
+                max-width: 90%; /* ปรับความกว้าง */
+            }
+        }
+
+        /* โค้ดสำหรับหน้ารายละเอียดการโฟกัส */
+        .description-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-section,
+        .description-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            max-width: 20%; /* ขนาดของภาพ */
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        /* ปุ่มย้อนกลับ */
+        .back-button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+            border-radius: 20px; /* ขอบมน */
+        }
+
+        .back-button:hover {
+            background: #218838; /* สีขณะ hover */
+        }
+
+        input[type="file"] {
+            display: block; /* แสดงเป็นบล็อก */
+            margin: 10px auto; /* จัดกลาง */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>การโฟกัสชัดลึก</h1>
+            <button class="back-button" onclick="window.location.href='index.html'">ย้อนกลับ</button>
+        </header>
+
+        <section class="image-section">
+            <div class="image-container">
+                <img src="image/3s.jpg" alt="Placeholder Image" id="selectedImage">
+            </div>
+        </section>
+
+        <section class="description-section">
+            <h2>การโฟกัสชัดลึก</h2>
+            <p id="focusTips">
+                การโฟกัสชัดลึก (Depth of Field) เป็นเทคนิคที่สำคัญในการถ่ายภาพเพื่อควบคุมว่าพื้นที่ไหนในภาพจะอยู่ในโฟกัสและพื้นที่ไหนจะเบลอ เทคนิคนี้สามารถสร้างผลลัพธ์ที่แตกต่างกันตามลักษณะการถ่ายภาพ ดังนี้:
+            </p>
+            <ul>
+                <li><strong>การควบคุมรูรับแสง:</strong> การใช้รูรับแสงขนาดเล็ก (ค่า f-stop สูง) จะทำให้มีโฟกัสชัดลึกมากขึ้น ทำให้วัตถุในระยะใกล้และไกลชัดเจนในภาพ</li>
+                <li><strong>ระยะห่างจากวัตถุ:</strong> หากคุณถ่ายภาพจากระยะไกล โฟกัสชัดลึกจะเพิ่มขึ้น แต่ถ้าถ่ายใกล้จะมีพื้นที่เบลอมากขึ้น การเลือกระยะห่างในการถ่ายภาพจึงมีผลต่อความชัดลึก</li>
+                <li><strong>ใช้เลนส์ที่เหมาะสม:</strong> เลนส์ที่มีการควบคุมโฟกัสที่ดีจะช่วยให้สามารถสร้างโฟกัสชัดลึกได้ตามต้องการ เช่น การใช้เลนส์มุมกว้างมักจะให้ความลึกมากกว่าการใช้เลนส์เทเลโฟโต้</li>
+            </ul>
+            <p>
+                การเข้าใจการโฟกัสชัดลึกช่วยให้คุณสามารถสร้างภาพที่มีมิติและความน่าสนใจ โดยเฉพาะเมื่อคุณต้องการทำให้วัตถุสำคัญโดดเด่นท่ามกลางฉากหลังที่เบลอ
+            </p>
+        </section>
+    </div>
+
+    <script>
+        function loadImage(event) {
+            const imageContainer = document.getElementById('selectedImage');
+            imageContainer.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
+</body>
+</html>

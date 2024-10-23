@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>การปรับค่าแสง</title>
+    <style>
+        /* โค้ดสำหรับการออกแบบโครงสร้างหลัก */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* เปลี่ยนพื้นหลังให้ตรงกัน */
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px; /* ขนาดสูงสุดของ container */
+            margin: 0 auto; /* กึ่งกลางแนวนอน */
+            padding: 20px; /* ขอบใน */
+        }
+
+        /* โค้ดสำหรับกล่องแสดงเทคนิคต่างๆ */
+        .technique {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 300px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .technique:hover {
+            transform: scale(1.05); /* ขยายขณะ hover */
+        }
+
+        .technique img {
+            max-width: 100%;
+            border-radius: 8px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .technique h2 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .technique p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* ปุ่มต่างๆ */
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #218838; /* สีขณะ hover */
+        }
+
+        /* ปรับแต่งตามหน้าจอขนาดเล็ก */
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .technique {
+                max-width: 90%; /* ปรับความกว้าง */
+            }
+        }
+
+        /* โค้ดสำหรับหน้ารายละเอียดการปรับค่าแสง */
+        .description-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-section,
+        .description-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            max-width: 20%; /* ขนาดของภาพ */
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        /* ปุ่มย้อนกลับ */
+        .back-button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+            border-radius: 20px; /* ขอบมน */
+        }
+
+        .back-button:hover {
+            background: #218838; /* สีขณะ hover */
+        }
+
+        input[type="file"] {
+            display: block; /* แสดงเป็นบล็อก */
+            margin: 10px auto; /* จัดกลาง */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>การปรับค่าแสง</h1>
+            <button class="back-button" onclick="window.location.href='index.html'">ย้อนกลับ</button>
+        </header>
+
+        <section class="image-section">
+            <div class="image-container">
+                <img src="image/3s.jpg" alt="Placeholder Image" id="selectedImage">
+            </div>
+        </section>
+
+        <section class="description-section">
+            <h2>การปรับค่าแสง</h2>
+            <p id="exposureTips">
+                การปรับค่าแสง (Exposure) เป็นกระบวนการที่ช่วยให้ภาพถ่ายมีแสงที่เหมาะสม โดยสามารถปรับได้จาก 3 ปัจจัยหลัก ได้แก่ รูรับแสง (Aperture), ความเร็วชัตเตอร์ (Shutter Speed), และ ISO ซึ่งแต่ละปัจจัยมีบทบาทสำคัญในการควบคุมปริมาณแสงที่เข้าสู่เซนเซอร์ของกล้อง:
+            </p>
+            <ul>
+                <li><strong>รูรับแสง (Aperture):</strong> การปรับค่ารูรับแสง (f-stop) จะมีผลต่อปริมาณแสงที่เข้าสู่กล้อง รูรับแสงที่กว้าง (ค่า f-stop ต่ำ) จะทำให้มีแสงเข้ามามากขึ้น และให้พื้นหลังเบลอ ขณะที่รูรับแสงที่แคบ (ค่า f-stop สูง) จะทำให้มีแสงเข้ามาน้อยลงและช่วยให้ภาพมีความคมชัดทั่วทั้งภาพ</li>
+                <li><strong>ความเร็วชัตเตอร์ (Shutter Speed):</strong> ความเร็วในการเปิดปิดชัตเตอร์ส่งผลต่อการรับแสง หากใช้ความเร็วชัตเตอร์ต่ำ จะทำให้มีแสงเข้ามามากขึ้น แต่ภาพอาจเบลอได้จากการเคลื่อนไหว ในขณะที่ความเร็วชัตเตอร์สูงจะทำให้ภาพคมชัดและแสงน้อยลง</li>
+                <li><strong>ISO:</strong> ค่า ISO จะช่วยควบคุมความไวแสงของเซนเซอร์ของกล้อง ค่าที่สูงขึ้นจะช่วยให้สามารถถ่ายภาพในที่แสงน้อยได้ แต่จะทำให้เกิดสัญญาณรบกวน (Noise) มากขึ้น ส่วนค่า ISO ต่ำจะทำให้ภาพคมชัดและมีสัญญาณรบกวนต่ำ</li>
+            </ul>
+            <p>
+                การปรับค่าแสงให้เหมาะสมเป็นทักษะที่สำคัญสำหรับการถ่ายภาพ ควรทดลองและปรับเปลี่ยนตามสภาพแวดล้อมและความต้องการในการสร้างสรรค์ภาพที่ดีที่สุด
+            </p>
+        </section>
+    </div>
+
+    <script>
+        function loadImage(event) {
+            const imageContainer = document.getElementById('selectedImage');
+            imageContainer.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
+</body>
+</html>

@@ -3,8 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>การจัดองค์ประกอบภาพ</title>
+    <style>
+        /* โค้ดสำหรับการออกแบบโครงสร้างหลัก */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* เปลี่ยนพื้นหลังให้ตรงกัน */
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px; /* ขนาดสูงสุดของ container */
+            margin: 0 auto; /* กึ่งกลางแนวนอน */
+            padding: 20px; /* ขอบใน */
+        }
+
+        /* โค้ดสำหรับกล่องแสดงเทคนิคต่างๆ */
+        .technique {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 300px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .technique:hover {
+            transform: scale(1.05); /* ขยายขณะ hover */
+        }
+
+        .technique img {
+            max-width: 100%;
+            border-radius: 8px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .technique h2 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .technique p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* ปุ่มต่างๆ */
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #218838; /* สีขณะ hover */
+        }
+
+        /* ปรับแต่งตามหน้าจอขนาดเล็ก */
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .technique {
+                max-width: 90%; /* ปรับความกว้าง */
+            }
+        }
+
+        /* โค้ดสำหรับหน้ารายละเอียดการจัดองค์ประกอบ */
+        .description-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-section,
+        .description-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            max-width: 20%; /* ขนาดของภาพ */
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        /* ปุ่มย้อนกลับ */
+        .back-button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+            border-radius: 20px; /* ขอบมน */
+        }
+
+        .back-button:hover {
+            background: #218838; /* สีขณะ hover */
+        }
+
+        input[type="file"] {
+            display: block; /* แสดงเป็นบล็อก */
+            margin: 10px auto; /* จัดกลาง */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -14,21 +152,22 @@
         </header>
 
         <section class="image-section">
-            <h2>รูปภาพที่เลือก</h2>
             <div class="image-container">
                 <img src="image/3s.jpg" alt="Placeholder Image" id="selectedImage">
             </div>
         </section>
 
         <section class="description-section">
-            <h2>ข้อมูลการจัดองค์ประกอบ</h2>
+            <h2>การจัดองค์ประกอบภาพ</h2>
             <p id="compositionTips">
                 กฎสามส่วน (Rule of Thirds) เป็นหลักการพื้นฐานที่ใช้ในการจัดองค์ประกอบภาพถ่าย เพื่อทำให้ภาพดูน่าสนใจและมีชีวิตชีวามากขึ้น โดยแบ่งภาพออกเป็นสามส่วนทั้งแนวนอนและแนวตั้ง ซึ่งจะได้เป็นกริดที่ประกอบด้วย 9 ช่อง (3x3) ดังนี้:
-
-                1. **การจัดตำแหน่งของวัตถุ**: วัตถุสำคัญในภาพควรจะถูกวางไว้ที่จุดตัดของเส้นแนวนอนและแนวตั้ง หรือบนเส้นเหล่านี้ โดยไม่ควรวางวัตถุไว้ตรงกลางภาพเสมอ การจัดวางแบบนี้จะทำให้ภาพมีความสมดุลและน่าสนใจมากขึ้น
-                2. **การสร้างสมดุลในภาพ**: นอกจากการวางวัตถุสำคัญแล้ว คุณสามารถใช้วัตถุอื่นในภาพเพื่อสร้างสมดุลให้กับภาพ เช่น การวางวัตถุอีกด้านหนึ่งที่มีขนาดหรือความสำคัญใกล้เคียงกันกับวัตถุหลัก
-                3. **การนำสายตา**: กฎสามส่วนช่วยให้ผู้ชมมีทิศทางการมองที่ชัดเจน โดยทำให้เกิดการเคลื่อนไหวของสายตาในภาพไปยังจุดที่สำคัญ ทำให้ภาพไม่ดูน่าเบื่อและมีมิติ
-
+            </p>
+            <ul>
+                <li><strong>การจัดตำแหน่งของวัตถุ:</strong> วัตถุสำคัญในภาพควรจะถูกวางไว้ที่จุดตัดของเส้นแนวนอนและแนวตั้ง หรือบนเส้นเหล่านี้ โดยไม่ควรวางวัตถุไว้ตรงกลางภาพเสมอ การจัดวางแบบนี้จะทำให้ภาพมีความสมดุลและน่าสนใจมากขึ้น</li>
+                <li><strong>การสร้างสมดุลในภาพ:</strong> นอกจากการวางวัตถุสำคัญแล้ว คุณสามารถใช้วัตถุอื่นในภาพเพื่อสร้างสมดุลให้กับภาพ เช่น การวางวัตถุอีกด้านหนึ่งที่มีขนาดหรือความสำคัญใกล้เคียงกันกับวัตถุหลัก</li>
+                <li><strong>การนำสายตา:</strong> กฎสามส่วนช่วยให้ผู้ชมมีทิศทางการมองที่ชัดเจน โดยทำให้เกิดการเคลื่อนไหวของสายตาในภาพไปยังจุดที่สำคัญ ทำให้ภาพไม่ดูน่าเบื่อและมีมิติ</li>
+            </ul>
+            <p>
                 การใช้กฎสามส่วนไม่ได้หมายความว่าต้องปฏิบัติตามอย่างเคร่งครัดเสมอไป แต่ควรใช้เป็นแนวทางในการสร้างภาพที่ดีกว่า แนะนำให้ทดลองและปรับเปลี่ยนตามสภาพแวดล้อมหรือวัตถุที่ถ่ายเพื่อให้ได้ผลลัพธ์ที่ดีที่สุดค่ะ
             </p>
         </section>

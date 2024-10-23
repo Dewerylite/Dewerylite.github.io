@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>การเลือกมุมมอง</title>
+    <style>
+        /* โค้ดสำหรับการออกแบบโครงสร้างหลัก */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* เปลี่ยนพื้นหลังให้ตรงกัน */
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px; /* ขนาดสูงสุดของ container */
+            margin: 0 auto; /* กึ่งกลางแนวนอน */
+            padding: 20px; /* ขอบใน */
+        }
+
+        /* โค้ดสำหรับกล่องแสดงเทคนิคต่างๆ */
+        .technique {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 300px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .technique:hover {
+            transform: scale(1.05); /* ขยายขณะ hover */
+        }
+
+        .technique img {
+            max-width: 100%;
+            border-radius: 8px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .technique h2 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .technique p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* ปุ่มต่างๆ */
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #218838; /* สีขณะ hover */
+        }
+
+        /* ปรับแต่งตามหน้าจอขนาดเล็ก */
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .technique {
+                max-width: 90%; /* ปรับความกว้าง */
+            }
+        }
+
+        /* โค้ดสำหรับหน้ารายละเอียดการเลือกมุมมอง */
+        .description-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-section,
+        .description-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            max-width: 20%; /* ขนาดของภาพ */
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        /* ปุ่มย้อนกลับ */
+        .back-button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+            border-radius: 20px; /* ขอบมน */
+        }
+
+        .back-button:hover {
+            background: #218838; /* สีขณะ hover */
+        }
+
+        input[type="file"] {
+            display: block; /* แสดงเป็นบล็อก */
+            margin: 10px auto; /* จัดกลาง */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>การเลือกมุมมอง</h1>
+            <button class="back-button" onclick="window.location.href='index.html'">ย้อนกลับ</button>
+        </header>
+
+        <section class="image-section">
+            <div class="image-container">
+                <img src="image/3s.jpg" alt="Placeholder Image" id="selectedImage">
+            </div>
+        </section>
+
+        <section class="description-section">
+            <h2>การเลือกมุมมอง</h2>
+            <p id="viewTips">
+                การเลือกมุมมองในการถ่ายภาพมีความสำคัญต่อการสร้างสรรค์ภาพที่มีคุณภาพ โดยมุมมองที่แตกต่างกันสามารถเปลี่ยนแปลงความรู้สึกและอารมณ์ของภาพได้อย่างมาก ดังนี้:
+            </p>
+            <ul>
+                <li><strong>มุมมองสูง (High Angle):</strong> การถ่ายจากมุมสูงช่วยให้ดูเหมือนว่ามองลงไปที่วัตถุ สามารถทำให้วัตถุมีขนาดเล็กลงและสร้างความรู้สึกอ่อนโยนหรือไม่มั่นใจ</li>
+                <li><strong>มุมมองต่ำ (Low Angle):</strong> การถ่ายจากมุมต่ำทำให้วัตถุดูมีพลังและโดดเด่นขึ้น ช่วยสร้างความรู้สึกมั่นคงหรือยิ่งใหญ่</li>
+                <li><strong>มุมมองระดับตา (Eye Level):</strong> การถ่ายจากระดับตาเป็นมุมมองที่เป็นธรรมชาติที่สุด ทำให้ผู้ชมรู้สึกเชื่อมโยงกับวัตถุในภาพ</li>
+                <li><strong>มุมมองเฉียง (Tilted Angle):</strong> การใช้มุมเฉียงสามารถสร้างความน่าสนใจและการเคลื่อนไหวในภาพ ช่วยทำให้ภาพดูมีชีวิตชีวา</li>
+            </ul>
+            <p>
+                การเลือกมุมมองที่เหมาะสมจะช่วยเพิ่มมิติและอารมณ์ให้กับภาพถ่ายของคุณ ควรทดลองถ่ายจากมุมมองที่แตกต่างกันเพื่อค้นหาสไตล์ที่ชอบและเหมาะสมที่สุดค่ะ
+            </p>
+        </section>
+    </div>
+
+    <script>
+        function loadImage(event) {
+            const imageContainer = document.getElementById('selectedImage');
+            imageContainer.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
+</body>
+</html>

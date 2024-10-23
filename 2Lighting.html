@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>การใช้แสงในการถ่ายภาพ</title>
+    <style>
+        /* โค้ดสำหรับการออกแบบโครงสร้างหลัก */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* เปลี่ยนพื้นหลังให้ตรงกัน */
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px; /* ขนาดสูงสุดของ container */
+            margin: 0 auto; /* กึ่งกลางแนวนอน */
+            padding: 20px; /* ขอบใน */
+        }
+
+        /* โค้ดสำหรับกล่องแสดงเทคนิคต่างๆ */
+        .technique {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 300px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .technique:hover {
+            transform: scale(1.05); /* ขยายขณะ hover */
+        }
+
+        .technique img {
+            max-width: 100%;
+            border-radius: 8px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .technique h2 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .technique p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* ปุ่มต่างๆ */
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #218838; /* สีขณะ hover */
+        }
+
+        /* ปรับแต่งตามหน้าจอขนาดเล็ก */
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .technique {
+                max-width: 90%; /* ปรับความกว้าง */
+            }
+        }
+
+        /* โค้ดสำหรับหน้ารายละเอียดการใช้แสง */
+        .description-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-section,
+        .description-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            max-width: 20%; /* ขนาดของภาพ */
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        /* ปุ่มย้อนกลับ */
+        .back-button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+            border-radius: 20px; /* ขอบมน */
+        }
+
+        .back-button:hover {
+            background: #218838; /* สีขณะ hover */
+        }
+
+        input[type="file"] {
+            display: block; /* แสดงเป็นบล็อก */
+            margin: 10px auto; /* จัดกลาง */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>การใช้แสงในการถ่ายภาพ</h1>
+            <button class="back-button" onclick="window.location.href='index.html'">ย้อนกลับ</button>
+        </header>
+
+        <section class="image-section">
+            <div class="image-container">
+                <img src="image/3s.jpg" alt="Placeholder Image" id="selectedImage">
+            </div>
+        </section>
+
+        <section class="description-section">
+            <h2>การใช้แสงในการถ่ายภาพ</h2>
+            <p id="lightingTips">
+                การใช้แสงในการถ่ายภาพเป็นปัจจัยที่สำคัญในการสร้างบรรยากาศและอารมณ์ให้กับภาพถ่าย การควบคุมแสงสามารถทำได้ทั้งจากแสงธรรมชาติและแสงประดิษฐ์ ดังนี้:
+            </p>
+            <ul>
+                <li><strong>แสงธรรมชาติ:</strong> การถ่ายภาพในช่วงเวลาเช้าหรือบ่ายแก่ๆ มักให้แสงที่นุ่มนวลและอบอุ่น ทำให้ภาพดูน่าสนใจมากขึ้น คุณสามารถใช้แสงนี้เพื่อสร้างเงาที่น่าสนใจและเพิ่มมิติให้กับภาพ</li>
+                <li><strong>การจัดแสงประดิษฐ์:</strong> การใช้ไฟสตูดิโอหรือแฟลชในการถ่ายภาพ สามารถปรับแสงให้เข้ากับบรรยากาศที่ต้องการได้ เช่น การสร้างเงาที่ชัดเจนหรือแสงสว่างที่นุ่มนวล</li>
+                <li><strong>ทิศทางของแสง:</strong> การควบคุมทิศทางของแสงช่วยให้ภาพดูมีมิติ คุณสามารถทดลองถ่ายภาพในมุมที่ต่างกันเพื่อดูว่าแสงจะตกกระทบวัตถุในแบบไหน</li>
+            </ul>
+            <p>
+                การใช้แสงไม่เพียงแต่ช่วยทำให้ภาพดูดีขึ้น แต่ยังช่วยสื่อสารความรู้สึกและอารมณ์ที่คุณต้องการถ่ายทอด ผ่านการเลือกใช้แสงที่เหมาะสมกับสภาพแวดล้อมและวัตถุที่ถ่าย
+            </p>
+        </section>
+    </div>
+
+    <script>
+        function loadImage(event) {
+            const imageContainer = document.getElementById('selectedImage');
+            imageContainer.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
+</body>
+</html>
